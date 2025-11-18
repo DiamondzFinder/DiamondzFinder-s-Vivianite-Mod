@@ -1,5 +1,6 @@
 package com.DiamondzFinder.Mod1;
-
+// This Is The Start Of My Mod Creation Learning journey. I Only Hope I Stick With It Long Enough
+// To Actually Learn Something :3
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
