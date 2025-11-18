@@ -1,6 +1,8 @@
-package com.DiamondzFinder.Mod1;
+package com.DiamondzFinder.vivianitemod;
 // This Is The Start Of My Mod Creation Learning journey. I Only Hope I Stick With It Long Enough
 // To Actually Learn Something :3
+import com.DiamondzFinder.vivianitemod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -19,16 +21,14 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(DiamondzFinder_Mod1.MOD_ID)
-public class DiamondzFinder_Mod1 {
-    // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "diamondzfinder_mod_one";
-    // Directly reference a slf4j logger
+@Mod(VivianiteMod.MOD_ID)
+public class VivianiteMod {
+    public static final String MOD_ID = "vivianitemod";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public DiamondzFinder_Mod1(IEventBus modEventBus, ModContainer modContainer) {
+    public VivianiteMod(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -36,6 +36,8 @@ public class DiamondzFinder_Mod1 {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModItems.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -50,7 +52,9 @@ public class DiamondzFinder_Mod1 {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.VIVIANITE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -60,7 +64,7 @@ public class DiamondzFinder_Mod1 {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = DiamondzFinder_Mod1.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = VivianiteMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {

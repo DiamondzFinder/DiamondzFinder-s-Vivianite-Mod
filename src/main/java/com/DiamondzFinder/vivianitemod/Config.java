@@ -1,4 +1,4 @@
-package com.DiamondzFinder.Mod1;
+package com.DiamondzFinder.vivianitemod;
 
 import java.util.List;
 
