@@ -19,16 +19,16 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(DiamondzFinderMod1.MOD_ID)
-public class DiamondzFinderMod1 {
+@Mod(DiamondzFinder_Mod1.MOD_ID)
+public class DiamondzFinder_Mod1 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "diamondzfindermodone";
+    public static final String MOD_ID = "diamondzfinder_mod_one";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public DiamondzFinderMod1(IEventBus modEventBus, ModContainer modContainer) {
+    public DiamondzFinder_Mod1(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -60,7 +60,7 @@ public class DiamondzFinderMod1 {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = DiamondzFinderMod1.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = DiamondzFinder_Mod1.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {
