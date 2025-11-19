@@ -3,5 +3,8 @@
 
   "item.vivianitemod.vivianite_ore":  "Vivianite Ore",
 
-  "block.vivianitemod.vivianite_ore": "Vivianite Ore"
+  "block.vivianitemod.vivianite_ore": "Vivianite Ore",
+
+  "creativetab.vivianitemod.vivianite_items" : "Vivianite Items",
+  "creativetab.vivianitemod.vivianite_blocks":  "Vivianite Blocks"
 }
