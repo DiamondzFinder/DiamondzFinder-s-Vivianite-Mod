@@ -2,6 +2,7 @@ package com.DiamondzFinder.vivianitemod;
 // This Is The Start Of My Mod Creation Learning journey. I Only Hope I Stick With It Long Enough
 // To Actually Learn Something :3
 import com.DiamondzFinder.vivianitemod.block.ModBlocks;
+import com.DiamondzFinder.vivianitemod.item.ModCreativeModeTabs;
 import com.DiamondzFinder.vivianitemod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
@@ -38,6 +39,7 @@ public class VivianiteMod {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -53,7 +55,7 @@ public class VivianiteMod {
 
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+   private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.VIVIANITE);
         }
