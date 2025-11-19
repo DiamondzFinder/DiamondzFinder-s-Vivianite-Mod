@@ -1,3 +1,7 @@
 {
-  "item.vivianitemod.vivianite": "Vivianite"
+  "item.vivianitemod.vivianite": "Vivianite",
+
+  "item.vivianitemod.vivianite_ore":  "Vivianite Ore",
+
+  "block.vivianitemod.vivianite_ore": "Vivianite Ore"
 }

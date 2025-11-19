@@ -1,6 +1,7 @@
 package com.DiamondzFinder.vivianitemod;
 // This Is The Start Of My Mod Creation Learning journey. I Only Hope I Stick With It Long Enough
 // To Actually Learn Something :3
+import com.DiamondzFinder.vivianitemod.block.ModBlocks;
 import com.DiamondzFinder.vivianitemod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
@@ -38,6 +39,8 @@ public class VivianiteMod {
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -50,10 +53,12 @@ public class VivianiteMod {
 
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.VIVIANITE);
+        }
+        if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(ModBlocks.VIVIANITE_ORE);
         }
     }
 
